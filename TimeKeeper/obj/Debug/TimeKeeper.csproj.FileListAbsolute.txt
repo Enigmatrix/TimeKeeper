@@ -1,31 +1,84 @@
-c:\users\akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe.config
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\nunit.framework.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\nunit.framework.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.csprojResolveAssemblyReference.cache
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\App.g.cs
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper_MarkupCompile.cache
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.g.resources
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.Properties.Resources.resources
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.csproj.GenerateResource.Cache
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.exe
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.pdb
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.dll
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.xml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.baml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\App.baml
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.g.cs
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe.config
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.pdb
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\System.Windows.Interactivity.dll
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.xml
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.xml
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\Personal\Code\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.csprojResolveAssemblyReference.cache
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\MainWindow.baml
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.baml
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\App.baml
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\MainWindow.g.cs
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.g.cs
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\App.g.cs
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper_MarkupCompile.cache
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.g.resources
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.Properties.Resources.resources
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.csproj.GenerateResource.Cache
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.exe
+D:\Personal\Code\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe.config
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.exe
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.exe
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\TimeKeeper.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.baml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\App.baml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Views\MainView.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\App.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper_MarkupCompile.cache
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.g.resources
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.Properties.Resources.resources
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper.csproj.GenerateResource.Cache
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper_MarkupCompile.lref
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\TimeKeeper_Content.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Media\clock_alarm_sound.wav
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Themes\Generic.baml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Controls\ResetDurationControl.baml
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Controls\Playground.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Controls\ResetDurationControl.g.cs
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\Controls\Playground.baml

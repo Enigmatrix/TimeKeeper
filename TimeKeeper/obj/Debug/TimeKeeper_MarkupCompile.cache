@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\obj\Debug\
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\obj\Debug\
 TimeKeeper
 none
 false
 DEBUG;TRACE
-C:\Users\Akash\documents\visual studio 2013\Projects\TimeKeeper\TimeKeeper\App.xaml
-11811751144
-
-71072729093
-69269492780
-Views\MainView.xaml;
+C:\Users\Akash\Source\Repos\Timekeeper\TimeKeeper\TimeKeeper\App.xaml
+41944411543
+1998076718
+121287198730
+741767950487
+Controls\Playground.xaml;Controls\ResetDurationControl.xaml;Themes\Generic.xaml;Views\MainView.xaml;
 
 False
 

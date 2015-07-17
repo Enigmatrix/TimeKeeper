@@ -3,18 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeKeeper", "TimeKeeper\TimeKeeper.csproj", "{7D09E58B-A85C-48B3-8148-FC3C5BCEE886}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeKeeper", "TimeKeeper\TimeKeeper.csproj", "{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "TimeKeeper.Install", "TimeKeeper.Install\TimeKeeper.Install.isproj", "{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7D09E58B-A85C-48B3-8148-FC3C5BCEE886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D09E58B-A85C-48B3-8148-FC3C5BCEE886}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D09E58B-A85C-48B3-8148-FC3C5BCEE886}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D09E58B-A85C-48B3-8148-FC3C5BCEE886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{96D03A1B-FFA0-4D9D-9B48-D4EF8DD3939B}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.Debug|Any CPU.ActiveCfg = DVD-5
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.Debug|Any CPU.Build.0 = DVD-5
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.DVD-5|Any CPU.Build.0 = DVD-5
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.Release|Any CPU.ActiveCfg = SingleImage
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.Release|Any CPU.Build.0 = SingleImage
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{0C2A280D-EBF8-45BB-ADCC-1794CE6064C0}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,72 +1,249 @@
 ﻿<Window x:Class="TimeKeeper.Views.MainView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" PreviewMouseDown="MainWindow_OnPreviewMouseDown" ShowInTaskbar="False"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"
-        WindowStyle="None" ResizeMode="CanResizeWithGrip" Topmost="True"
-        Title="MainWindow" Height="150" Width="500" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <Style TargetType="MenuItem">
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-    </Window.Resources>
-    <Border CornerRadius="10" BorderThickness="10" BorderBrush="DodgerBlue" x:Name="Border">
+        xmlns:vm="clr-namespace:TimeKeeper.ViewModels"
+        xmlns:controls="clr-namespace:TimeKeeper.Controls"
+        xmlns:converters="clr-namespace:TimeKeeper.Converters"
+        Title="TimeKeeper" Height="150" Width="500" Icon="../Media/favicon.ico"
+        WindowStyle="None" AllowsTransparency="True" Topmost="True" ShowInTaskbar="False"
+        ResizeMode="CanResize" Background="Transparent" SourceInitialized="MainWindowSourceInitialized">
 
-        <Border.Style>
-            <Style TargetType="Border">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding Complete, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                        <Setter Property="Background" Value="Red"/>
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Complete, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
-                        <Setter Property="Background" Value="{StaticResource WindowBackground}"/>
-                    </DataTrigger>
-                </Style.Triggers>
+    <!--Main Content Grid-->
+    <!--
+        This Grid hosts 2 layers
+            1. The actual content that you see (ContentRoot)
+            2. A invisible layer that sits on top the Content, hosting actions
+               like moving, resizing, and the contextmenu
+    -->
+    <Grid Name="LayoutRoot">
+
+        <Grid.Resources>
+            <Style TargetType="MenuItem">
+                <Setter Property="FontSize" Value="20" />
             </Style>
-        </Border.Style>
 
-        <Border.ContextMenu>
-            <ContextMenu>
-                <!--Start-->
-                <MenuItem Header="Start" Command="{Binding StartCommand}">
-                    <MenuItem.Icon>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE102;"
-                               Foreground="Green"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <!--Pause-->
-                <MenuItem Header="Pause" Command="{Binding PauseCommand}">
-                    <MenuItem.Icon>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE103;"
-                               Foreground="Red"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <!--Restart-->
-                <MenuItem Header="Restart" Command="{Binding RestartCommand}">
-                    <MenuItem.Icon>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE117;"
-                               Foreground="Orange"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <!--Reset-->
-                <MenuItem Header="Reset" Command="{Binding ResetCommand}">
-                    <MenuItem.Icon>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE149;"
-                               Foreground="Yellow"/>
-                    </MenuItem.Icon>
+            <!--The dimensions of the border of the entire app-->
+            <Thickness x:Key="BorderThickness">10</Thickness>
+
+            <Color x:Key="AlarmBorderColor">Red</Color>
+            <SolidColorBrush x:Key="NormalBorderBrush" Color="DodgerBlue" />
+            <SolidColorBrush x:Key="AlarmBorderBrush" Color="{StaticResource AlarmBorderColor}" />
+
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" Flip="False" />
+            <converters:BooleanToVisibilityConverter x:Key="FlippedBooleanToVisibilityConverter" Flip="True" />
+
+        </Grid.Resources>
+
+        <Grid.DataContext>
+            <vm:MainViewModel />
+        </Grid.DataContext>
+
+        <!--ContentRoot, the actual Content that you see-->
+        <Border Background="{DynamicResource WindowBackground}"
+                CornerRadius="10" Name="ContentRoot" PreviewMouseDown="MoveWindow"
+                BorderThickness="{StaticResource BorderThickness}">
+
+
+            <!--Commands for the app, exposed as ContextMenu MenuItems-->
+            <Border.ContextMenu>
+                <ContextMenu>
+                    <!--Start-->
+                    <MenuItem Header="Start" Command="{Binding StartCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE102;"
+                                       Foreground="Green" />
+                        </MenuItem.Icon>
                     </MenuItem>
-                <!--Close-->
-                <MenuItem Header="Close" Command="{Binding CloseCommand}">
-                    <MenuItem.Icon>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE106;"
-                               Foreground="DarkRed"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </ContextMenu>
-        </Border.ContextMenu>
+                    <!--Pause-->
+                    <MenuItem Header="Pause" Command="{Binding StopCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE103;"
+                                       Foreground="Red" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <!--Restart-->
+                    <MenuItem Header="Restart" Command="{Binding RestartCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE117;"
+                                       Foreground="Orange" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <!--Reset-->
+                    <MenuItem Header="Reset" Command="{Binding GoToResetModeCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE149;"
+                                       Foreground="Yellow" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
-        <Viewbox>
-            <TextBlock HorizontalAlignment="Stretch" Foreground="White" VerticalAlignment="Stretch"
-                       Text="{Binding Remaining, UpdateSourceTrigger=PropertyChanged}" FontFamily="Consolas" />
-        </Viewbox>
-    </Border>
+                    <!--UI Theme-->
+                    <MenuItem Header="{Binding NextThemeName}" Command="{Binding SwitchThemeCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE13C;"
+                                       Foreground="{DynamicResource WindowText}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <!--Close-->
+                    <MenuItem Header="Close" Command="{Binding CloseCommand}">
+                        <MenuItem.Icon>
+                            <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE106;"
+                                       Foreground="DarkRed" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </Border.ContextMenu>
+
+            <!--If the Countdown is completed (when IsCompleted is set to True)
+                    the border color of the app is the AlarmBorderBrush
+                Else
+                    the border color of the app is the NormalBorderBrush
+            -->
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        
+                        <MultiDataTrigger>
+                            
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsCompleted}" Value="True" />
+                                <Condition Binding="{Binding InResetMode}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            
+                            <Setter Property="Border.BorderBrush" Value="{StaticResource AlarmBorderBrush}" />
+                            
+                        </MultiDataTrigger>
+                        
+                        <DataTrigger Binding="{Binding InResetMode}" Value="True">
+                            <Setter Property="Border.BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+                        </DataTrigger>
+                        
+                        <DataTrigger Binding="{Binding IsCompleted}" Value="False">
+                            <Setter Property="Border.BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+                        </DataTrigger>
+                        
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <Grid>
+                <!--The actual Countdown. Yes, XAML is verbose enough
+                that the import part is like <20 lines, surrounded
+                by many lines of other crap-->
+
+                <Viewbox
+                    Visibility="{Binding InResetMode, Converter={StaticResource FlippedBooleanToVisibilityConverter}}">
+                    <TextBlock FontFamily="/TimeKeeper;Component/Media/#DS-Digital"
+                               Text="{Binding Remaining}"
+                               Foreground="{DynamicResource WindowText}" />
+                </Viewbox>
+
+                <controls:ResetDurationControl
+                    Visibility="{Binding InResetMode, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    x:Name="Resetter">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueSet">
+                            <i:InvokeCommandAction Command="{Binding ResetCommand}"
+                                                   CommandParameter="{Binding Value, ElementName=Resetter}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </controls:ResetDurationControl>
+
+            </Grid>
+        </Border>
+
+        <!--The invisible layer, contains Rectangles that are meant for resizing and a Grid for animation-->
+        <Grid>
+            <!--Divides the App space into 9 sections meant for the
+                resizing rectangles (middle section for animation)
+                The size of each of these sections is based on the
+                BorderThickness set for the app`s Border
+            -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=Left, Source={StaticResource BorderThickness}}" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="{Binding Path=Right, Source={StaticResource BorderThickness}}" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding Path=Top, Source={StaticResource BorderThickness}}" />
+                <RowDefinition />
+                <RowDefinition Height="{Binding Path=Bottom, Source={StaticResource BorderThickness}}" />
+            </Grid.RowDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="#00000000" />
+                </Style>
+            </Grid.Resources>
+
+            <!--Each of the 8 Rectangles below are meant for resizing-->
+            <Rectangle Grid.Column="0" Grid.Row="0" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeNW" />
+
+            <Rectangle Grid.Column="1" Grid.Row="0" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeN" />
+
+            <Rectangle Grid.Column="2" Grid.Row="0" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeNE" />
+
+            <Rectangle Grid.Column="2" Grid.Row="1" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeE" />
+
+            <Rectangle Grid.Column="2" Grid.Row="2" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeSE" />
+
+            <Rectangle Grid.Column="1" Grid.Row="2" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeS" />
+
+            <Rectangle Grid.Column="0" Grid.Row="2" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeSW" />
+
+            <Rectangle Grid.Column="0" Grid.Row="1" MouseEnter="DisplayResizeCursor"
+                       MouseLeave="ResetCursor" PreviewMouseLeftButtonDown="Resize" Name="ResizeW" />
+
+            <!--This Control below is meant for animation (the red flashes when Countdown is Complete)-->
+            <!--Also captures the double tap-->
+            <Grid Grid.Column="1" Grid.Row="1" Background="#00000000" IsHitTestVisible="False">
+                
+                <Grid.Style>
+                    <Style>
+                        <Style.Resources>
+                            <!--This is the actual animation-->
+                            <Storyboard x:Key="AppFlash">
+                                <!--
+                                    For 0.150 seconds, the Color is Transparent, then changes to Red for
+                                    another 0.150, repeat till IsCompeted is False 
+                                -->
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
+                                    AutoReverse="True" RepeatBehavior="Forever" Duration="00:00:00.3">
+                                    <DiscreteColorKeyFrame KeyTime="00:00:00.15"
+                                                           Value="{StaticResource AlarmBorderColor}" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Style.Resources>
+                        <Style.Triggers>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsCompleted}" Value="True" />
+                                    <Condition Binding="{Binding InResetMode}" Value="False" />
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.EnterActions>
+                                    <BeginStoryboard Name="AppFlashBeginStoryBoard"
+                                                     Storyboard="{StaticResource AppFlash}" />
+                                </MultiDataTrigger.EnterActions>
+                                <MultiDataTrigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="AppFlashBeginStoryBoard" />
+                                </MultiDataTrigger.ExitActions>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
 </Window>

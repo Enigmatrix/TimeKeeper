@@ -1,159 +1,102 @@
 using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Runtime.Remoting.Channels;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Threading;
-using GalaSoft.MvvmLight;
-using NUnit.Framework;
 
 namespace TimeKeeper.Models
 {
-
-    [TestFixture]
-    public class CountdownModelTests
+    public interface ICountdownModel : IModelBase
     {
-        /*
-         * Behavior Definition:
-         * 
-         *      Start:
-         *          When Start() is called, Duration remains the same, but
-         *          Remaining will start to change and call PropertyChanged,
-         *          once every one second
-         *          
-         *      Stop:
-         *          When Stop() is called, Duration remains the same, and
-         *          Remaining will stop decreasing and stop calling PropertyChanged.
-         *          
-         *      Restart:
-         *          When Restart() is called, Remaining is set equal to Duration.
-         *          PropertyChanged should be called only once. The Remaining should
-         *          not decrease anymore.
-         *          
-         *      Reset:
-         *          When Reset(newDuration) is called, the timer stops. Duration and
-         *          Remaining are set to newDuration. Both PropertyChanged are fired
-         *          Neither Remaining and Duration should not decrease.
-         */
-
-        [Test]
-        public void Duration_Set_FiresPropertyChanged()
-        {
-            var countdownModel = new CountdownModel();
-            var durationChangedCount = 0;
-            //set Duration to 5 seconds
-            countdownModel.PropertyChanged += (sender, args) =>
-            {
-                if (args.PropertyName == "Duration")
-                    durationChangedCount++;
-            };
-            countdownModel.Duration = new TimeSpan(0, 0, 0, 5);
-            Assert.That(durationChangedCount, Is.EqualTo(1));
-        }
-        /*
-        [Test]
-        public void Start_MakesRemainingDecreaseOnceEveryOneSecond()
-        {
-            Dispatcher.CurrentDispatcher.Invoke(() =>
-            {
-                var countdownModel = new CountdownModel();
-                var durationChangedCount = 0;
-                var remainingChangedCount = 0;
-                //set Duration to 5 seconds
-                countdownModel.PropertyChanged += (sender, args) =>
-                {
-                    if (args.PropertyName == "Duration")
-                        durationChangedCount++;
-                    if (args.PropertyName == "Remaining")
-                        remainingChangedCount++;
-                };
-                countdownModel.Duration = new TimeSpan(0, 0, 0, 5);
-                Assert.That(countdownModel.Duration, Is.EqualTo(countdownModel.Remaining));
-                countdownModel.Start();
-                Assert.That(countdownModel.Remaining, Is.EqualTo(TimeSpan.FromSeconds(0)));
-                Assert.That(durationChangedCount, Is.EqualTo(1));
-                Assert.That(remainingChangedCount, Is.EqualTo(6));
-            })
-            ;
-        }
-         */
-
-
+        TimeSpan Duration { get; }
+        TimeSpan Remaining { get; }
+        bool IsCompleted { get; }
+        bool IsRunning { get; }
+        void Start();
+        void Stop();
+        void Restart();
+        void Reset(TimeSpan newTime);
+        //tracks changes to IsCompleted. IsCompleted is sent as the param
+        event Action<bool> CompletedChanged;
     }
 
-    public class CountdownModel : ObservableObject
+    public class CountdownModel : ModelBase, ICountdownModel
     {
-        private TimeSpan _duration;
-        private TimeSpan _remaining;
-        private readonly TimeSpan _interval = TimeSpan.FromSeconds(1);
-
-        private readonly DispatcherTimer _internalTimer;
+        private static readonly TimeSpan DefaultDuration = TimeSpan.FromMinutes(30);
+        private static readonly TimeSpan Interval = TimeSpan.FromSeconds(1);
+        //we are using the wpf dispatcher timer
+        private readonly DispatcherTimer _timer = new DispatcherTimer {Interval = Interval};
+        private TimeSpan _duration = DefaultDuration;
+        private bool _isCompleted;
+        private bool _isRunning;
+        private TimeSpan _remaining = DefaultDuration;
 
         public CountdownModel()
         {
-            _internalTimer = new DispatcherTimer
-            {
-                Interval = _interval
-            };
-            _internalTimer.Tick += delegate
-            {
-                Remaining = Remaining - _interval;
-                if (Remaining <= TimeSpan.FromSeconds(0))
-                {
-                    Stop();
-                    Remaining = TimeSpan.FromSeconds(0);
-                }
-            };
+            _timer.Tick += Tick;
         }
 
-        void TimeChanged()
+        public bool IsCompleted
         {
+            get { return _isCompleted; }
+            private set
+            {
+                CompletedChanged(value);
+                Set(ref _isCompleted, value);
+            }
+        }
+
+        public bool IsRunning
+        {
+            get { return _isRunning;}
+            set { Set(ref _isRunning, value); }
         }
 
         public TimeSpan Duration
         {
             get { return _duration; }
-            set
-            {
-                Reset(value);
-                RaisePropertyChanged();
-            }
+            private set { Set(ref _duration, value); }
         }
 
         public TimeSpan Remaining
         {
             get { return _remaining; }
-            private set
-            {
-                Set(ref _remaining, value);
-            }
-        }
-
-        public void Reset(TimeSpan newDuration)
-        {
-            Stop();
-            _duration = newDuration;
-            Remaining = _duration;
+            private set { Set(ref _remaining, value); }
         }
 
         public void Start()
         {
-            _internalTimer.Start();
+            _timer.Start();
+            IsRunning = true;
         }
 
         public void Stop()
         {
-            _internalTimer.Stop();
+            _timer.Stop();
+            IsRunning = false;
         }
 
         public void Restart()
         {
             Stop();
             Remaining = Duration;
+            IsCompleted = false;
+        }
+
+        public void Reset(TimeSpan newTime)
+        {
+            Stop();
+            IsCompleted = false;
+            Duration = Remaining = newTime;
+        }
+
+        public event Action<bool> CompletedChanged = completed => { };
+
+        private void Tick(object sender, EventArgs e)
+        {
+            Remaining -= Interval;
+            if (Remaining <= TimeSpan.Zero)
+            {
+                IsCompleted = true;
+                Stop();
+            }
         }
     }
 }
