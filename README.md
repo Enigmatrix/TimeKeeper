@@ -1,4 +1,4 @@
-# TimeKeeper
+# TimeKeeper (Install : ![Install\setup.exe](Install\setup.exe))
 This a project I made that helps me keep track of time.
 It's a very simple countdown timer.
 ![Dark themed TimeKeeper](images/dark.png)
