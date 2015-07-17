@@ -1,0 +1,72 @@
+﻿<Window x:Class="TimeKeeper.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" PreviewMouseDown="MainWindow_OnPreviewMouseDown" ShowInTaskbar="False"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        WindowStyle="None" ResizeMode="CanResizeWithGrip" Topmost="True"
+        Title="MainWindow" Height="150" Width="500" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="10" BorderThickness="10" BorderBrush="DodgerBlue" x:Name="Border">
+
+        <Border.Style>
+            <Style TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Complete, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                        <Setter Property="Background" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Complete, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                        <Setter Property="Background" Value="{StaticResource WindowBackground}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <Border.ContextMenu>
+            <ContextMenu>
+                <!--Start-->
+                <MenuItem Header="Start" Command="{Binding StartCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE102;"
+                               Foreground="Green"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--Pause-->
+                <MenuItem Header="Pause" Command="{Binding PauseCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE103;"
+                               Foreground="Red"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--Restart-->
+                <MenuItem Header="Restart" Command="{Binding RestartCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE117;"
+                               Foreground="Orange"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--Reset-->
+                <MenuItem Header="Reset" Command="{Binding ResetCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE149;"
+                               Foreground="Yellow"/>
+                    </MenuItem.Icon>
+                    </MenuItem>
+                <!--Close-->
+                <MenuItem Header="Close" Command="{Binding CloseCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="&#xE106;"
+                               Foreground="DarkRed"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </Border.ContextMenu>
+
+        <Viewbox>
+            <TextBlock HorizontalAlignment="Stretch" Foreground="White" VerticalAlignment="Stretch"
+                       Text="{Binding Remaining, UpdateSourceTrigger=PropertyChanged}" FontFamily="Consolas" />
+        </Viewbox>
+    </Border>
+</Window>
